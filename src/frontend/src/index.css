@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("/assets/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark theme — teal-tinted charcoal */
+    --background: 0.1 0.008 195;
+    --foreground: 0.93 0.008 195;
+    --card: 0.17 0.008 195;
+    --card-foreground: 0.93 0.008 195;
+    --popover: 0.19 0.008 195;
+    --popover-foreground: 0.93 0.008 195;
+    --primary: 0.73 0.13 170;
+    --primary-foreground: 0.1 0.005 195;
+    --secondary: 0.22 0.008 195;
+    --secondary-foreground: 0.78 0.008 195;
+    --muted: 0.22 0.008 195;
+    --muted-foreground: 0.65 0.008 195;
+    --accent: 0.67 0.12 170;
+    --accent-foreground: 0.1 0.005 195;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.26 0.008 195;
+    --input: 0.24 0.008 195;
+    --ring: 0.73 0.13 170;
+    --code-bg: 0.1 0.005 195;
+    --gold: 0.81 0.14 80;
+    --tag-bg: 0.2 0.008 195;
+    --tag-fg: 0.75 0.008 195;
+    --chart-1: 0.73 0.13 170;
+    --chart-2: 0.65 0.12 170;
+    --chart-3: 0.81 0.14 80;
+    --chart-4: 0.62 0.22 25;
+    --chart-5: 0.7 0.15 150;
+    --sidebar: 0.15 0.008 195;
+    --sidebar-foreground: 0.93 0.008 195;
+    --sidebar-primary: 0.73 0.13 170;
+    --sidebar-primary-foreground: 0.1 0.005 195;
+    --sidebar-accent: 0.22 0.008 195;
+    --sidebar-accent-foreground: 0.93 0.008 195;
+    --sidebar-border: 0.26 0.008 195;
+    --sidebar-ring: 0.73 0.13 170;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-code {
+    font-family: "Fira Code", "JetBrainsMono", monospace;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 999px;
+  }
+
+  .card-hover {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-hover:hover {
+    border-color: oklch(var(--primary) / 0.5);
+    box-shadow: 0 0 0 1px oklch(var(--primary) / 0.2), 0 8px 32px
+      oklch(var(--primary) / 0.08);
+  }
+}
